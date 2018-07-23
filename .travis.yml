@@ -10,6 +10,7 @@ before_install:
 #  - sudo apt-get update -qq
   - mkdir -p build/log
 install:
+  - composer install -n
   - cp ./dev/Vagrant/settings.sh-sample ./dev/Vagrant/settings.sh
   - sh ./dev/Vagrant/vagrant-cacti-develop.sh
 addons:
