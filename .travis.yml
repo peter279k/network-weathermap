@@ -1,6 +1,6 @@
 sudo: false
 language: php
-services: 
+services:
   - mysql
 php:
   - "7.2"
@@ -19,12 +19,15 @@ install:
 addons:
   code_climate:
     repo_token: 858ba1f597a441ed0b8abfefb2db2ecc09309285da99bd165ebcf1b580ced776
-  apt:
+   apt:
+    sources:
+      - mysql-5.7-trusty
     packages:
       - imagemagick
       - rrdtool
       - xsltproc
       - fping
+      - mysql-server
 before_script:
   - mysql weathermaptest < test-suite/data/weathermap-empty.sql
   - phpenv config-add dev/ci/travis.ini
